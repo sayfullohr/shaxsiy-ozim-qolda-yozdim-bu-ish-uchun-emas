@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javobni Top Quiz</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e1b4b);
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 35px;
+            border-radius: 16px;
+            width: 400px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: #e2e8f0;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        button {
+            background-color: #334155;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            text-align: left;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #475569;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* To'g'ri javob uchun dizayn */
+        .correct {
+            background-color: #10b981 !important;
+            color: white;
+        }
+
+        /* Xato javob uchun dizayn */
+        .wrong {
+            background-color: #ef4444 !important;
+            color: white;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 15px;
+            font-weight: 600;
+            min-height: 24px;
+        }
+    </style>
+</head>
+<body id="body">
+
+    <div class="card">
+        <h1>tasodifiy sozni  toping:</h1>
+        
+        <div class="options">
+            <button id="btn-correct" onclick="salom()">salom</button>
+            <button onclick="salomim(this)">salomim</button>
+            <button onclick="help(this)">help</button>
+            <button onclick="yordam(this)">yordam</button>
+        </div>
+
+        <div id="message"></div>
+    </div>
+
+    <script>
+        const messageBox = document.getElementById("message");
+
+        function salom() {
+            const btn = document.getElementById("btn-correct");
+            btn.classList.add("correct");
+            messageBox.style.color = "#34d399";
+            messageBox.textContent = "Tabriklaymiz, to'g'ri topdingiz! 🎉";
+            
+            setTimeout(() => {
+                window.location.reload();
+            }, 1500);
+        }
+
+        function salomim(element) {
+             setTimeout(() => {
+                window.location.reload();
+            }, 500);
+            element.classList.add("wrong");
+            messageBox.style.color = "#f87171";
+            messageBox.textContent = "Xato topdingiz! Qaytadan urinib ko'ring.";
+        }
+
+        function help(element) {
+             setTimeout(() => {
+                window.location.reload();
+            }, 500);
+            element.classList.add("wrong");
+            messageBox.style.color = "#f87171";
+            messageBox.textContent = "Xato topdingiz!";
+        }
+
+        function yordam(element) {
+             setTimeout(() => {
+                window.location.reload();
+            }, 500);
+            element.classList.add("wrong");
+            messageBox.style.color = "#f87171";
+            messageBox.textContent = "Xato topdingiz!";
+        }
+    </script>
+</body>
+</html>
